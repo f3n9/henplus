@@ -181,7 +181,6 @@ public final class SQLCommand extends AbstractCommand {
         if (sql != null && HenPlus.getInstance().getCurrentSession() != null) {
             try {
 		CommandDispatcher disp = HenPlus.getInstance().getDispatcher();
-		_columnDelimiter = " ";
 		disp.execute(HenPlus.getInstance().getCurrentSession(),sql);
 		disp.execute(HenPlus.getInstance().getCurrentSession(),"exit;");
             } catch (final Exception e) {
