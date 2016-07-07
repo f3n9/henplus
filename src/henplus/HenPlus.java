@@ -175,10 +175,11 @@ public final class HenPlus implements Interruptable {
             _dispatcher.register(new KeyBindCommand(this));
         }
 
+        _dispatcher.register(new ConnectCommand(this, _sessionManager));
+
         final LoadCommand loadCommand = new LoadCommand();
         _dispatcher.register(loadCommand);
 
-        _dispatcher.register(new ConnectCommand(this, _sessionManager));
         _dispatcher.register(new StatusCommand());
 
         _dispatcher.register(_objectLister);

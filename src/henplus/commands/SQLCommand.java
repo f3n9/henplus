@@ -23,10 +23,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.Option;
 
 /**
  * document me.
@@ -154,6 +158,38 @@ public final class SQLCommand extends AbstractCommand {
 
     public boolean isShowFooter() {
         return _showFooter;
+    }
+
+    @Override
+    public Collection<Option> getHandledCommandLineOptions() {
+        final Collection<Option> result = new LinkedList<Option>();
+
+        final Option option = new Option("S", "SQL", true, "SQL to execute");
+        option.setArgName("SELECT ...");
+        result.add(option);
+
+        return result;
+    }
+
+    @Override
+    public void handleCommandline(final CommandLine line) {
+        String sql = null;
+
+        if (line.hasOption("S")) {
+            sql = line.getOptionValue("S");
+        }
+        if (sql != null && HenPlus.getInstance().getCurrentSession() != null) {
+            try {
+		CommandDispatcher disp = HenPlus.getInstance().getDispatcher();
+		_columnDelimiter = " ";
+		disp.execute(HenPlus.getInstance().getCurrentSession(),sql);
+		disp.execute(HenPlus.getInstance().getCurrentSession(),"exit;");
+            } catch (final Exception e) {
+                e.printStackTrace();
+                HenPlus.msg().println(e.getMessage());
+            }
+        }
+
     }
 
     /**
