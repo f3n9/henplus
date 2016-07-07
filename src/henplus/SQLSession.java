@@ -96,7 +96,7 @@ public class SQLSession implements Interruptable {
     private void printTransactionIsolation(final DatabaseMetaData meta, final int iLevel, final String descript, final int current)
             throws SQLException {
         if (meta.supportsTransactionIsolationLevel(iLevel)) {
-            HenPlus.msg().println(" " + descript + (current == iLevel ? " *" : " "));
+            //HenPlus.msg().println(" " + descript + (current == iLevel ? " *" : " "));
         }
     }
 
