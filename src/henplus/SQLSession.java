@@ -56,20 +56,20 @@ public class SQLSession implements Interruptable {
         // HenPlus.msg().println("connect to '" + url + "'");
         driver = DriverManager.getDriver(url);
 
-        HenPlus.msg().println("HenPlus II connecting ");
-        HenPlus.msg().println(" url '" + url + '\'');
-        HenPlus.msg().println(" driver version " + driver.getMajorVersion() + "." + driver.getMinorVersion());
+	//        HenPlus.msg().println("HenPlus II connecting ");
+	//        HenPlus.msg().println(" url '" + url + '\'');
+	//        HenPlus.msg().println(" driver version " + driver.getMajorVersion() + "." + driver.getMinorVersion());
         connect();
 
         int currentIsolation = Connection.TRANSACTION_NONE;
         final DatabaseMetaData meta = _conn.getMetaData();
         _databaseInfo = meta.getDatabaseProductName() + " - " + meta.getDatabaseProductVersion();
-        HenPlus.msg().println(" " + _databaseInfo);
+	//        HenPlus.msg().println(" " + _databaseInfo);
         try {
             if (meta.supportsTransactions()) {
                 currentIsolation = _conn.getTransactionIsolation();
             } else {
-                HenPlus.msg().println("no transactions.");
+		//                HenPlus.msg().println("no transactions.");
             }
             _conn.setAutoCommit(false);
         } catch (final SQLException ignoreMe) {

@@ -746,7 +746,7 @@ public final class HenPlus implements Interruptable {
         } catch (final IOException ign) { /* ign */
         }
 
-        Logger.info("henplus config at " + _configDir, false);
+        //Logger.info("henplus config at " + _configDir, false);
         return _configDir;
     }
 

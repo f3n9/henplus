@@ -35,7 +35,7 @@ public class AboutCommand extends AbstractCommand {
     }
 
     public AboutCommand() {
-        Logger.info(ABOUT);
+        //Logger.info(ABOUT);
     }
 
     /**

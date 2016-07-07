@@ -131,7 +131,7 @@ public class ConnectCommand extends AbstractCommand {
             try {
                 String newUrl = _knownUrls.get(url);
                 if (newUrl != null) {
-                    HenPlus.msg().println("Using alias " + url);
+                    //HenPlus.msg().println("Using alias " + url);
                     url = newUrl;
                 }
 
