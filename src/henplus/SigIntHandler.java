@@ -78,6 +78,9 @@ public class SigIntHandler implements SignalHandler, InterruptHandler {
         if (_once) {
             // got the interrupt more than once. May happen if you press
             // Ctrl-C multiple times .. or with broken thread lib on Linux.
+	    if (_toInterruptStack.empty()) {
+		System.exit(1);
+	    }
             return;
         }
 
