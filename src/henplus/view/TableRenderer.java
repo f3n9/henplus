@@ -126,11 +126,11 @@ public class TableRenderer {
         txt = formatString(col.getNextLine(), ' ', meta[i].getWidth(), meta[i].getAlignment());
         hasMoreLines |= col.hasNextLine();
         if (col.isNull()) {
-            out.attributeGrey();
+            //out.attributeGrey();
         }
         out.print(txt);
         if (col.isNull()) {
-            out.attributeReset();
+            //out.attributeReset();
         }
         out.print(colSeparator);
         return hasMoreLines;
@@ -157,9 +157,9 @@ public class TableRenderer {
             }
             String txt;
             txt = formatString(meta[i].getLabel(), ' ', meta[i].getWidth() + 1, ColumnMetaData.ALIGN_CENTER);
-            out.attributeBold();
+            //out.attributeBold();
             out.print(txt);
-            out.attributeReset();
+            //out.attributeReset();
             out.print(colSeparator);
         }
         out.println();
