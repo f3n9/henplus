@@ -81,6 +81,7 @@ public class ExtendedTableRenderer extends TableRenderer {
      */
     @Override
     protected boolean printColumns(final Column[] currentRow, boolean hasMoreLines) {
+        out.print(colSeparator.trim());
         int metaIndex = 0;
         // iterate over the elements of the given row
         for (int i = 0; i < currentRow.length; ++i) {

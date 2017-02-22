@@ -111,6 +111,7 @@ public class TableRenderer {
     }
 
     protected boolean printColumns(final Column[] currentRow, boolean hasMoreLines) {
+        out.print(colSeparator.trim());
         for (int i = 0; i < meta.length; ++i) {
             if (!meta[i].doDisplay()) {
                 continue;
@@ -137,6 +138,7 @@ public class TableRenderer {
     }
 
     private void printHorizontalLine() {
+        out.print(colSeparator.trim());
         for (int i = 0; i < meta.length; ++i) {
             if (!meta[i].doDisplay()) {
                 continue;
@@ -144,13 +146,14 @@ public class TableRenderer {
             String txt;
             txt = formatString("", '-', meta[i].getWidth() + _separatorWidth + 1, ColumnMetaData.ALIGN_LEFT);
             out.print(txt);
-            out.print("+");
+	    out.print(colSeparator.trim());
         }
         out.println();
     }
 
     private void printTableHeader() {
         printHorizontalLine();
+	out.print(colSeparator.trim());
         for (int i = 0; i < meta.length; ++i) {
             if (!meta[i].doDisplay()) {
                 continue;
